@@ -1,7 +1,8 @@
-"use client"
+'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { cn } from "@/app/lib/utils";
+import { BackgroundBeams } from "@/app/components/ui/background-beams";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -17,27 +18,17 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' }); // Clear form on submit
-    setTimeout(() => setIsSubmitted(false), 3000); // Reset form submission state
+    setFormData({ name: '', email: '', message: '' });
+    setTimeout(() => setIsSubmitted(false), 3000);
   };
 
   return (
     <div className="relative bg-black text-white">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        {/* <Image
-          src="/images/contact-bg.jpg" // Make sure to use an image of your choice
-          alt="Contact Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        /> */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-      </div>
+      {/* Background Beams Positioned Absolutely */}
+      <BackgroundBeams className="absolute inset-0 z-0" />
 
-      {/* Contact Content */}
+      {/* Contact Content Positioned Relative and Above Background */}
       <div className="relative z-10 text-center pt-20 pb-32 px-4 md:px-8">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-purple-900">Get In Touch</h1>
         <p className="text-lg mb-8 text-pink-900">
